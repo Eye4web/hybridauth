@@ -178,7 +178,7 @@ class Hybrid_Provider_Adapter
 
 		if ( ! $this->isUserConnected() ){
 			throw new Exception( "User not connected to the provider {$this->id}.", 7 );
-		} 
+		}
 
 		if ( ! method_exists( $this->adapter, $name ) ){
 			throw new Exception( "Call to undefined function Hybrid_Providers_{$this->id}::$name()." );

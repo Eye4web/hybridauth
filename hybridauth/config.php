@@ -56,7 +56,7 @@ return
 
 			"LinkedIn" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "key" => "", "secret" => "" ) 
+				"keys"    => array ( "key" => "", "secret" => "")
 			),
 
 			"Foursquare" => array (

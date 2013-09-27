@@ -49,9 +49,26 @@ class Hybrid_Storage
 
 	public function set( $key, $value )
 	{
+        /*
 		$key = strtolower( $key ); 
 
-		$_SESSION["HA::STORE"][$key] = serialize( $value ); 
+		$_SESSION["HA::STORE"][$key] = serialize( $value );
+        */
+
+        $key = strtolower( $key );
+
+        if (gettype($value) == 'string' || gettype($value) == 'array' || is_integer($value)) {
+            $_SESSION["HA::STORE"][$key] = serialize( $value );
+        } else {
+            if (is_object($value)) {
+                if (get_class($value) == 'Exception') {
+                    //it might contain closures!
+                    die($value->getMessage());
+                }
+            }
+        }
+
+        $_SESSION["HA::STORE"][$key] = serialize( $value );
 	}
 
 	function clear()
